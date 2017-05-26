@@ -11,6 +11,8 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
+import com.study.spring.controller.GeneralController;
+
 /**
  * 标题: SpringContextLoaderListener.java 作者: 王昭峰 Copyright: Copyright(c) 2007 公司:
  * 杭州创盾科技有限公司 日期: 2017年5月25日 下午4:22:21 版本: 1.0 描述:
@@ -35,6 +37,7 @@ public class SpringContextLoaderListener extends ContextLoaderListener {
 		public static void main(String[] args) {
 			ApplicationContext ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
 			System.out.println("11   "+ctx);
-			System.out.println(ctx.getApplicationName());
+			GeneralController bean = (GeneralController) ctx.getBean("generalController");
+			System.out.println(bean.toString());
 		}
 }
